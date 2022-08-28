@@ -1,0 +1,8 @@
+﻿@model My_Project.Models.Message
+<h2 class="text-danger">Do you really want to delete this message?</h2>
+<p>Name: @Model.Name</p>
+<p>Address: @Model.Email</p>
+<p>Phone: @Model.Subject</p>
+<p>Check In: @Model.MessageSide</p>
+
+<a href="/admin/message/deleteconfirmed/@Model.Id" class="btn btn-danger">Delete</a>

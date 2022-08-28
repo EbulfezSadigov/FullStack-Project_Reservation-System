@@ -1,0 +1,110 @@
+﻿@model HomeViewModel
+
+<section id="about-side" class="text-center">
+    <div class="container">
+        <h1 class="fw-bolder">Choose Our Rooms</h1>
+    </div>
+</section>
+
+<section id="room">
+    <div class="container" data-aos="zoom-in-down" data-aos-duration="2000">
+        <div class="top-text text-center mb-5">
+            <span class="top">Our Rooms</span>
+        </div>
+        <h2 class="text-center mb-5">Our Rooms</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                @foreach (Room item in Model.rooms)
+                {
+
+                    <div class="swiper-slide text-center mb-5 rounded-3">
+                        <div class="img-wrapper">
+                            <div class="img-length">
+                                <img src="~/images/@item.Image" class="img-fluid rounded-3">
+                            </div>
+                        </div>
+                        <div class="text mt-4">
+                            <h4>@item.Title</h4>
+                            <p class="money"><span class="fs-2 text-primary">$@item.RoomPrice</span>/per night</p>
+                        </div>
+                        <div class="properties">
+                            @foreach (RoomAmentity item2 in item.RoomAmentities)
+                            {
+                                <p><i class="uil uil-check fs-4"></i>@item2.Amentity.Name</p>
+                            }
+                            <a href="/room/details/@item.Id" class="mybtn">More Details</a>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
+<section id="service">
+    <div class="container">
+        <div class="top-text text-center mb-5" data-aos="zoom-out-down" data-aos-duration="1000" data-aos-offset="300"
+             data-aos-easing="ease-in-sine">
+            <span class="top">Service</span>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 col-12 p-0">
+                <div class="categories text-lg-start text-center" data-aos="fade-right">
+                    @foreach (Category item in Model.categories)
+                    {
+                        <span class="tabs-toggle"><i class="uil @item.Icon me-2"></i>@item.Name</span>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-7 col-12 p-0">
+                @foreach (Service item in Model.services)
+                {
+                    <div class="services @(Model.services.IndexOf(item)==0?"is-active":"") text-light" data-aos="fade-left">
+                        <i class="uil @item.Icon"></i>
+                        <h2 class="mb-4 fs-1">@item.Title</h2>
+                        <p class="mb-4">@item.Text</p>
+                        <span>@item.Subtext</span>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="guest">
+    <div class="container" data-aos="zoom-in-down" data-aos-duration="2000">
+        <div class="top-text text-center mb-5">
+            <span class="top">Guests says</span>
+        </div>
+        <h2 class="text-center mb-5">Our Satisfied Guests says</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                @foreach (Guest item in Model.guests)
+                {
+                    <div class="swiper-slide text-center mb-5">
+                        <div class="img-wrapper">
+                            <img src="~/images/person/@item.Image" class="img-fluid mb-3"><br>
+                        </div>
+                        <div class="stars">
+                            @for (int i = 0; i < item.startCount; i++)
+                            {
+                                <i class="bi bi-star-fill"></i>
+                            }
+                        </div>
+                        <div class="text mt-2">
+                            <p class="opacity-75">
+                                @item.Title
+                            </p>
+                        </div>
+                        <div class="properties mt-5">
+                            <p class="fw-semibold">@item.Name</p>
+                            <span>Guest from @item.Where</span>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>

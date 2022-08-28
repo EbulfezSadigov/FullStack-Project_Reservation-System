@@ -1,0 +1,46 @@
+﻿@model HomeViewModel
+
+<section id="about-side" class="text-center">
+    <div class="container">
+        <h1 class="fw-bolder">Read Our Blog</h1>
+    </div>
+</section>
+
+<section id="blog" class="text-light">
+    <div class="container" data-aos="zoom-out-down" data-aos-duration="1000" data-aos-offset="300"
+         data-aos-easing="ease-in-sine">
+        <div class="top-text text-center mb-5">
+            <span class="top">Blog</span>
+        </div>
+        <h2 class="text-center mb-5">Recent Blog</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                @foreach (Blog item in Model.blogs)
+                {
+                <div class="swiper-slide mb-5 rounded-3">
+                    <div class="img-wrapper">
+                        <img src="~/images/blog/@item.Image" class="img-fluid rounded-3">
+                    </div>
+                    <div class="properties mt-2">
+                        <a href=""><i class="uil uil-user me-1"></i>Admin</a>
+                        <a href=""><i class="uil uil-calender me-1"></i>@item.Date.ToString("dd/MMM/yyyy")</a>
+                        <a href=""><i class="uil uil-comment-alt-heart me-1"></i>@item.CommentCount comments</a>
+                    </div>
+                    <div class="text mt-2 mb-4">
+                        <a href="">
+                            <h5>@item.Title</h5>
+                        </a>
+                        <p>
+                            @item.Text
+                        </p>
+                        <a href="/blog/details/@item.Id">Read Blog<i class="ms-1 uil uil-arrow-circle-right fs-5"></i></a>
+                    </div>
+                </div>
+
+                }
+                
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>

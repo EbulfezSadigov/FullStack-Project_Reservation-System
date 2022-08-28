@@ -1,0 +1,37 @@
+﻿@model List<My_Project.Models.BookingModel>
+
+
+<h1 class="mb-4 text-center text-black">Bookings</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th>Number Of Members</th>
+            <th>Settings</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (My_Project.Models.BookingModel item in Model)
+        {
+        <tr>
+            <td>@item.CustomerName</td>
+            <td>@item.CustomerAddress</td>
+            <td>@item.CustomerPhone</td>
+            <td>@item.CustomerEmail</td>
+            <td>@item.BookingTo</td>
+            <td>@item.BookingFrom</td>
+            <td>@item.NumberOfMembers</td>
+            <td>
+                <a href="/admin/booking/delete/@item.Id" class="btn btn-danger">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table> 

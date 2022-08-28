@@ -1,0 +1,10 @@
+﻿@model My_Project.Models.BookingModel
+<h2 class="text-danger">Do you really want to delete this message?</h2>
+<p>Name: @Model.CustomerName</p>
+<p>Address: @Model.CustomerAddress</p>
+<p>Phone: @Model.CustomerPhone</p>
+<p>Check In: @Model.BookingTo</p>
+<p>Check Out: @Model.BookingFrom</p>
+<p>Number Of Members: @Model.NumberOfMembers</p>
+
+<a href="/admin/booking/deleteconfirmed/@Model.Id" class="btn btn-danger">Delete</a>

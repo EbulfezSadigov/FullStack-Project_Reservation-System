@@ -1,0 +1,46 @@
+﻿@model IEnumerable<My_Project.Models.About>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">About</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-secondary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+            <td>
+                <img src="~/images/@Html.DisplayFor(modelItem => item.Image)" alt="Alternate Text" style="width:60px;" />
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success m-1"><i class="fas fa-edit"></i></a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary m-1"><i class="fas fa-info-circle"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

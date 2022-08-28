@@ -1,0 +1,55 @@
+﻿@model HomeViewModel
+
+
+<section id="about-side" class="text-center">
+    <div class="container">
+        <h1 class="fw-bolder">@Model.detailRoom.Title</h1>
+    </div>
+</section>
+
+
+
+<section id="details">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <img src="~/images/@Model.detailRoom.Image" class="rounded mb-5 img-fluid">
+                <h3 class="mb-3">@Model.detailRoom.Title</h3>
+                <div class="icons d-inline-block me-5">
+                    <img src="~/images/icon/user-group.png" class="mb-3">
+                    <p>@Model.detailRoom.RoomCapacity people</p>
+                </div>
+                <div class="icons d-inline-block  me-5">
+                    <img src="~/images/icon/size.png" class="mb-3">
+                    <p>@Model.detailRoom.Area sqm</p>
+                </div>
+                <div class="icons d-inline-block me-5">
+                    <img src="~/images/icon/double-bed.png" class="mb-3">
+                    <p>King Bed</p>
+                </div>
+                <div class="icons d-inline-block me-5">
+                    <img src="~/images/icon/no-smoking.png" class="mb-3">
+                    <p>No Smoking</p>
+                </div>
+                <div class="icons d-inline-block me-5">
+                    <img src="~/images/icon/shower.png" class="mb-3">
+                    <p>Shower</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <p class="from">From</p>
+                <p class="money">$@Model.detailRoom.RoomPrice</p>
+            </div>
+        </div>
+        <div class="text mt-5">
+            <h3 class="mb-5">Room Overview</h3>
+            <p class="opacity-75">
+                @Model.detailRoom.DetailText1
+            </p>
+
+            <p class="opacity-75">
+                @Model.detailRoom.DetailText2            
+            </p>
+        </div>
+    </div>
+</section>

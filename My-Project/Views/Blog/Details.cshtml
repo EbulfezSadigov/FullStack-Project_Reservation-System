@@ -1,0 +1,36 @@
+﻿<section id="about-side" class="text-center">
+    <div class="container">
+        <h1 class="fw-bolder">Blog Single</h1>
+    </div>
+</section>
+
+@model HomeViewModel 
+<section id="blog-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <div class="img-wrapper mb-5">
+                    <img src="~/images/blog/@Model.detailBlog.Image" class="rounded-3 img-fluid">
+                </div>
+                <div class="text-up">
+                    <h2>@Model.detailBlog.BlogTitle</h2>
+                    <p class="opacity-75 fs-5">@Model.detailBlog.BlogText</p>
+                </div>
+                <div class="text-down">
+                    <h2> @Model.detailBlog.BlogTitle2</h2>
+                    <img src="~/images/blog/blog-single.jpg" style="width: 332px; margin: 10px;" class="float-lg-start float-none img-fluid">
+                    <p class="fs-5">
+                        @Model.detailBlog.BlogText2
+                    </p>
+                </div>
+            </div>
+            <div class="col-4 d-lg-inline-block d-none">
+                <h3 class="mb-3">TEXT WIDGET</h3>
+                <p>Morbi leo risus, porta ac consectetur ac, vest ibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis.</p>
+                <h5>TAG CLOUD</h5>
+                <button class="bg-black text-light" style="padding: 3px 10px;">Blog</button>
+                <button class="bg-black text-light" style="padding: 3px 10px;">Life Style</button>
+            </div>
+        </div>
+    </div>
+</section>
